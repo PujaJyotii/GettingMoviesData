@@ -1,0 +1,43 @@
+.backdrop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.98);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.overlay {
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+  color: white;
+  position: fixed;
+}
+
+.overlay header {
+  background-color: rgb(44, 4, 4);
+  padding: 5px;
+}
+.overlay p {
+  padding: 8px;
+}
+.overlay footer button {
+  border: none;
+  color: white;
+  background-color: rgb(44, 4, 4);
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  margin: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.overlay footer button:hover {
+  background-color: rgb(228, 68, 68);
+}
