@@ -24,7 +24,7 @@ function MovieForm(props) {
       year: year,
       genre: genre,
     };
-    props.onAdd(movie);
+
     const response = await fetch(
       "https://movie-project-28d8c-default-rtdb.firebaseio.com/movies.json",
       {
@@ -35,7 +35,7 @@ function MovieForm(props) {
     );
     const data = await response.json();
     movie.id = data.name;
-
+    props.onAdd(movie);
     setName("");
     setYear("");
     setGenre("");

@@ -33,6 +33,23 @@ function App() {
     fetchMovies();
   }, []);
 
+  const DeletingHandler = async (id) => {
+    try {
+      let res = await fetch(
+        `https://movie-project-28d8c-default-rtdb.firebaseio.com/movies/${id}.json`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!res.ok) {
+        throw new Error("Somthing went wrong");
+      }
+      setList((prev) => prev.filter((movie) => movie.id !== id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const addHandler = (movie) => {
     return setList((prev) => [...prev, movie]);
   };
@@ -40,7 +57,7 @@ function App() {
     <div>
       <Header />
       <MovieForm onAdd={addHandler} />
-      <MovieList list={list} />
+      <MovieList list={list} Deleting={DeletingHandler} />
     </div>
   );
 }
